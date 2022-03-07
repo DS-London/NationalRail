@@ -152,7 +152,7 @@ class DepBoardWithDetails : Request
 
 				auto platform = nodeService.childData("lt4:platform");
 
-				_services ~= new Service(	std,
+				auto svc = new Service(	std,
 											etd,
 											Operator(operator, opCode),
 											servType,
@@ -162,7 +162,6 @@ class DepBoardWithDetails : Request
 											uiLen,
 											platform );
 
-				auto svc = _services[$-1];
 				auto callingPoints = drill(nodeService,"lt5:subsequentCallingPoints","lt4:callingPointList");
 				foreach( nodeCp; callingPoints.findChildren("lt4:callingPoint"))
 				{
@@ -170,6 +169,7 @@ class DepBoardWithDetails : Request
 													   nodeCp.childData("lt4:st"),nodeCp.childData("lt4:et"));
 				}
 
+				_services ~= svc;
 			}
 
 			return true;

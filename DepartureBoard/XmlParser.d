@@ -146,7 +146,7 @@ class NodeBuilder
 	{
 		switch(tag[1])
 		{
-			case '?':
+			case '?','!':
 				break;
 			case tagEnd: //Leave node
 				_current = _current._parent;
@@ -170,10 +170,23 @@ class NodeBuilder
 					foreach(part; parts[1..$])
 					{
 						auto attparts = split(part,'=');
-						_current._attributes ~= XmlAttribute(attparts[0],attparts[1]);
+						if(attparts.length > 1)
+								_current._attributes ~= XmlAttribute(attparts[0],attparts[1]);
 					}
 				}
+
+				if( tag[$-2] == tagEnd ) //Open & End in same tag
+				{
+					_current = _current._parent;
+				}
 		}
+	}
+
+	T popFront(T)(ref T[] range)
+	{
+		T ret = range[0];
+		range = range[1 .. $];
+		return ret;
 	}
 
 	XmlNode buildNode(string strXml)
@@ -184,8 +197,10 @@ class NodeBuilder
 		string data;
 		while(! strXml.empty )
 		{	
-			dchar c = strXml.front;
-			strXml.popFront;
+			//dchar c = strXml.front;
+			//strXml.popFront;
+
+			dchar c = popFront(strXml);
 			
 			if( c== tagOpen)
 			{
@@ -198,14 +213,16 @@ class NodeBuilder
 				string tag;
 				tag ~= c;
 
-				c = strXml.front;
-				strXml.popFront;
+				//c = strXml.front;
+				//strXml.popFront;
 
+				c = popFront(strXml);
 				while (c && (c != tagClose))
 				{
 					tag ~= c;
-					c = strXml.front;
-					strXml.popFront;
+					//c = strXml.front;
+					//strXml.popFront;
+					c = popFront(strXml);
 				}
 
 				processTag(tag ~ tagClose);

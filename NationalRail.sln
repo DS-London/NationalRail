@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.32126.315
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{002A2DE9-8BB6-484D-9802-7E4AD4084715}") = "DepartureBoard", "DepartureBoard\DepartureBoard.visualdproj", "{DFB4C89E-1093-425E-80C2-C9FF17BDC8A1}"
 EndProject
+Project("{002A2DE9-8BB6-484D-9802-7E4AD4084715}") = "WSDL_Parser", "WSDL_Parser\WSDL_Parser.visualdproj", "{541CACD9-73AF-4ED6-9BEE-A8FA7F89343A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,12 @@ Global
 		{DFB4C89E-1093-425E-80C2-C9FF17BDC8A1}.Release|x64.Build.0 = Release|x64
 		{DFB4C89E-1093-425E-80C2-C9FF17BDC8A1}.Release|x86.ActiveCfg = Release|Win32
 		{DFB4C89E-1093-425E-80C2-C9FF17BDC8A1}.Release|x86.Build.0 = Release|Win32
+		{541CACD9-73AF-4ED6-9BEE-A8FA7F89343A}.Debug|x64.ActiveCfg = Debug|x64
+		{541CACD9-73AF-4ED6-9BEE-A8FA7F89343A}.Debug|x64.Build.0 = Debug|x64
+		{541CACD9-73AF-4ED6-9BEE-A8FA7F89343A}.Debug|x86.ActiveCfg = Debug|x64
+		{541CACD9-73AF-4ED6-9BEE-A8FA7F89343A}.Release|x64.ActiveCfg = Release|x64
+		{541CACD9-73AF-4ED6-9BEE-A8FA7F89343A}.Release|x64.Build.0 = Release|x64
+		{541CACD9-73AF-4ED6-9BEE-A8FA7F89343A}.Release|x86.ActiveCfg = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
